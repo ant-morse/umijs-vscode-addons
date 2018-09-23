@@ -1,0 +1,49 @@
+{
+  "name": "umijs-vscode-addons",
+  "displayName": "umijs-vscode-addons",
+  "description": "This extension adds context menu items for creating the directory structures and file templates for Umijs pages and components.",
+  "version": "0.0.1",
+  "publisher": "fengsx",
+  "engines": {
+    "vscode": "^1.27.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-morse/umijs-vscode-addons"
+  },
+  "activationEvents": [
+    "onCommand:extension.createUmijsPage"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.createUmijsPage",
+        "title": "Generate Umijs Page"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "extension.createUmijsPage",
+          "group": "ReactExplorerExtensionsGroup@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "eslint": "^4.11.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  }
+}
